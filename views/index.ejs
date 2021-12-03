@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <title>Great Number Game</title>
+</head>
+<body>
+    <h1>Welcome to the Great Number Game!</h1>
+    <div>
+        <p>I am thinking of a number between 1 to 100</p>
+
+        <p>Take a guess!</p>
+        <% if(data.status == "Win"){ %>
+            <p><%= data.number %> was the number!</p>
+            <a href="/reset">Play Again!</a>
+        <% } 
+        else if(data.status == "Loss"){ %>
+            <p>Too High!</p>
+            <form action="/question" method="POST">
+                <input type="number" name="guess" >
+                <input type="submit" class="submit" value="Submit">
+            </form>
+        <% } 
+        else if(data.status == "Higher"){ %>
+            <p>Too Low!</p>
+            <form action="/question" method="POST">
+                <input type="number" name="guess">
+                <input type="submit" class="submit" value="Submit">
+            </form>
+        <% } 
+        else{ %>
+            <form action="/question" method="POST">
+                <input type="number" name="guess" >
+                <input type="submit" class="submit" value="Submit">
+                
+            </form>
+        <% } %>
+    </div>
+</body>
+</html>
